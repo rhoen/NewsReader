@@ -13,15 +13,26 @@ NewsReader.Views.FeedShow = Backbone.View.extend({
     this.model.fetch();
   },
 
+  remove: function () {
+    this._subViews.forEach(function(subView) {
+      subView.remove();
+    })
+
+    this.$el.remove();
+    this.stopListening();
+    return this;
+  },
+
   render: function () {
     this.$el.html(this.template({
       feed: this.model
     }))
-
+    this._subViews = [];
     this.model.entries().forEach(function(entry) {
-      var title = entry.escape("title");
-      this.$("ul").prepend('<li>' + title + '</li>');
-    });
+      var subView = new NewsReader.Views.EntryShow({model: entry});
+      this._subViews.push(subView);
+      this.$("ul").prepend(subView.render().$el);
+    }.bind(this));
 
     return this;
   }
