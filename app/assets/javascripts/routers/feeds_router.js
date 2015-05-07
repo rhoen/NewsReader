@@ -1,6 +1,7 @@
 NewsReader.Routers.FeedsRouter = Backbone.Router.extend({
   routes: {
     "" : "feedsIndex",
+    "feeds/create": "feedCreate",
     "feeds/:id": "feedShow"
 
   },
@@ -25,6 +26,16 @@ NewsReader.Routers.FeedsRouter = Backbone.Router.extend({
     });
 
     this.$el.html(feedShowView.render().$el);
+  },
+
+  feedCreate: function () {
+
+    var createView = new NewsReader.Views.FeedCreate({
+      collection: this.feeds
+    });
+
+    this.$el.html(createView.render().$el);
+
   }
 
 
