@@ -6,7 +6,7 @@ window.NewsReader = {
   initialize: function() {
     var feeds = new NewsReader.Collections.Feeds();
     new NewsReader.Routers.FeedsRouter({
-      $el: $('body'),
+      $el: $('#content'),
       feeds: feeds
     });
     Backbone.history.start();

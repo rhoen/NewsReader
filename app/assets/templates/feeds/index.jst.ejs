@@ -1,7 +1,11 @@
 <h1>Feeds</h1>
 <ul>
   <% feeds.forEach(function(feed){ %>
-    <li><%= feed.escape('title') %></li>
+    <li>
+      <a href="#/feeds/<%= feed.id %>">
+        <%= feed.escape('title') %>
+      </a>
+    </li>
   <% }) %>
 
 
