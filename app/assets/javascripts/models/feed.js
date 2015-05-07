@@ -1,3 +1,3 @@
 NewsReader.Models.Feed = Backbone.Model.extend({
-  urlRoot: "/feeds"
+  urlRoot: "/api/feeds"
 })

@@ -1,4 +1,4 @@
 NewsReader.Collections.Feeds = Backbone.Collection.extend({
-  url: '/feeds',
+  url: '/api/feeds',
   model: NewsReader.Models.Feed
 })
