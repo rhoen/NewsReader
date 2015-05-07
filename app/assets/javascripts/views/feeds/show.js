@@ -18,6 +18,11 @@ NewsReader.Views.FeedShow = Backbone.View.extend({
       feed: this.model
     }))
 
+    this.model.entries().forEach(function(entry) {
+      var title = entry.escape("title");
+      this.$("ul").prepend('<li>' + title + '</li>');
+    });
+
     return this;
   }
 })

@@ -1,7 +1,4 @@
 <h1><%= feed.escape("title") %></h1>
 <button class="refresh">Refresh</button>
 <ul>
-  <% feed.entries().forEach(function(entry) { %>
-    <li><%= entry.escape("title") %></li>
-  <% }) %>
 </ul>
