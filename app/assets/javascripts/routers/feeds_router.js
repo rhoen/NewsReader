@@ -2,8 +2,8 @@ NewsReader.Routers.FeedsRouter = Backbone.Router.extend({
   routes: {
     "" : "feedsIndex",
     "feeds/create": "feedCreate",
-    "feeds/:id": "feedShow"
-
+    "feeds/:id": "feedShow",
+    "sessions/login": "logIn"
   },
 
   initialize: function (options) {
@@ -41,6 +41,11 @@ NewsReader.Routers.FeedsRouter = Backbone.Router.extend({
     });
 
     this.swapViews(createView);
+  },
+
+  logIn: function () {
+    var view = new NewsReader.Views.LogIn();
+    this.$el.html(view.render().$el);
   }
 
 })

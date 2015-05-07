@@ -3,7 +3,10 @@ NewsReader::Application.routes.draw do
     resources :feeds, only: [:index, :create, :show, :destroy] do
       resources :entries, only: [:index]
     end
+
+    resources :sessions
   end
+
 
   root to: "static_pages#index"
 end

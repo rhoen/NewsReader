@@ -1,4 +1,8 @@
 <h1>Feeds</h1>
+<% if(NewsReader._currentUser) { %>
+  Welcome <%= NewsReader._currentUser.get("username") %>!
+<% }; %>
+<a href="#/sessions/login">Log In!</a>
 <ul>
   <% feeds.forEach(function(feed){ %>
     <li>
